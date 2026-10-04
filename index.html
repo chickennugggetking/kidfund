@@ -42,6 +42,195 @@
         padding: 0 22px;
       }
 
+      /* Auth Screen */
+      .auth-screen {
+        display: none;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .auth-screen.active {
+        display: flex;
+      }
+
+      .auth-container {
+        background: white;
+        border-radius: 28px;
+        padding: 40px;
+        max-width: 480px;
+        width: 100%;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+      }
+
+      .auth-header {
+        text-align: center;
+        margin-bottom: 32px;
+      }
+
+      .auth-logo {
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, var(--primary), #7d93ff);
+        display: grid;
+        place-items: center;
+        color: white;
+        font-weight: 900;
+        font-size: 1.8rem;
+        box-shadow: 0 12px 28px rgba(91,124,255,0.3);
+        margin: 0 auto 16px;
+      }
+
+      .auth-header h1 {
+        margin: 0 0 8px;
+        font-size: 2rem;
+      }
+
+      .auth-header p {
+        color: var(--muted);
+        margin: 0;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        font-weight: 700;
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+        color: var(--text);
+      }
+
+      .form-group input, .form-group select {
+        width: 100%;
+        padding: 14px 15px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #f8faff;
+        color: var(--text);
+        outline: none;
+        transition: 0.2s ease;
+      }
+
+      .form-group input:focus, .form-group select:focus {
+        border-color: rgba(91,124,255,0.65);
+        box-shadow: 0 0 0 4px rgba(91,124,255,0.08);
+        background: white;
+      }
+
+      .form-group input::placeholder {
+        color: var(--muted);
+      }
+
+      .password-strength {
+        margin-top: 8px;
+        display: flex;
+        gap: 4px;
+      }
+
+      .strength-bar {
+        height: 4px;
+        flex: 1;
+        background: #ddd;
+        border-radius: 2px;
+      }
+
+      .strength-bar.filled {
+        background: #ef5f5f;
+      }
+
+      .strength-bar.filled.medium {
+        background: #f5a623;
+      }
+
+      .strength-bar.filled.strong {
+        background: #2fc88d;
+      }
+
+      .auth-btn {
+        width: 100%;
+        padding: 14px 16px;
+        background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-weight: 800;
+        cursor: pointer;
+        transition: 0.2s ease;
+        margin-top: 24px;
+        box-shadow: 0 12px 28px rgba(91,124,255,0.25);
+      }
+
+      .auth-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 36px rgba(91,124,255,0.35);
+      }
+
+      .auth-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .step-indicator {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 32px;
+        justify-content: center;
+      }
+
+      .step-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #ddd;
+        transition: 0.2s ease;
+      }
+
+      .step-dot.active {
+        background: var(--primary);
+        width: 28px;
+        border-radius: 5px;
+      }
+
+      .step-label {
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-bottom: 20px;
+      }
+
+      .back-btn {
+        background: white;
+        border: 1px solid var(--line);
+        color: var(--text);
+        padding: 12px 16px;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: 700;
+        width: 100%;
+        margin-bottom: 12px;
+        transition: 0.2s ease;
+      }
+
+      .back-btn:hover {
+        background: var(--panel-soft);
+      }
+
+      /* Main App */
+      .app-screen {
+        display: none;
+      }
+
+      .app-screen.active {
+        display: block;
+      }
+
       .topbar {
         background: rgba(255,255,255,0.82);
         backdrop-filter: blur(12px);
@@ -130,10 +319,6 @@
         border-color: var(--line);
         background: white;
         color: var(--text);
-      }
-      .btn-light {
-        background: rgba(91,124,255,0.08);
-        color: var(--primary);
       }
 
       .approval-badge {
@@ -295,7 +480,145 @@
         border: 1px solid rgba(239, 95, 95, 0.2);
       }
 
-      /* Rest of the existing styles */
+      /* Welcome Screen */
+      .welcome-screen {
+        display: none;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .welcome-screen.active {
+        display: flex;
+      }
+
+      .welcome-card {
+        background: white;
+        border-radius: 28px;
+        padding: 48px 40px;
+        max-width: 600px;
+        width: 100%;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+
+      .welcome-logo {
+        width: 80px;
+        height: 80px;
+        border-radius: 20px;
+        background: linear-gradient(135deg, var(--primary), #7d93ff);
+        display: grid;
+        place-items: center;
+        color: white;
+        font-weight: 900;
+        font-size: 2.4rem;
+        box-shadow: 0 16px 40px rgba(91,124,255,0.3);
+        margin: 0 auto 24px;
+      }
+
+      .welcome-card h1 {
+        margin: 0 0 16px;
+        font-size: 2.4rem;
+      }
+
+      .welcome-card p {
+        margin: 0 0 32px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .welcome-info {
+        background: var(--panel-soft);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 20px;
+        margin-bottom: 24px;
+        text-align: left;
+      }
+
+      .welcome-info-item {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .welcome-info-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .welcome-info-icon {
+        font-size: 1.3rem;
+        min-width: 20px;
+      }
+
+      .welcome-info-text strong {
+        display: block;
+        font-weight: 800;
+        margin-bottom: 4px;
+      }
+
+      .welcome-info-text {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .welcome-btn {
+        width: 100%;
+        padding: 16px 20px;
+        background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-weight: 800;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.2s ease;
+        box-shadow: 0 12px 28px rgba(91,124,255,0.25);
+      }
+
+      .welcome-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 36px rgba(91,124,255,0.35);
+      }
+
+      .user-info {
+        background: var(--panel-soft);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 12px 16px;
+        margin-left: auto;
+      }
+
+      .user-name {
+        font-weight: 800;
+        font-size: 0.9rem;
+      }
+
+      .user-child {
+        font-size: 0.75rem;
+        color: var(--muted);
+      }
+
+      .logout-btn {
+        background: white;
+        border: 1px solid var(--line);
+        color: var(--text);
+        padding: 8px 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 0.8rem;
+        margin-left: 10px;
+      }
+
+      .logout-btn:hover {
+        background: var(--panel-soft);
+      }
+
+      /* Hero and other sections */
       .hero {
         padding: 72px 0 50px;
       }
@@ -343,701 +666,211 @@
         margin-top: 28px;
       }
 
-      .stats {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0,1fr));
-        gap: 14px;
-        max-width: 520px;
-        margin-top: 34px;
-      }
-      .stat-box {
-        background: rgba(255,255,255,0.8);
-        border: 1px solid var(--line);
-        border-radius: 20px;
-        padding: 18px 16px;
-        box-shadow: var(--shadow);
-      }
-      .stat-value {
-        font-size: clamp(1.4rem, 2.4vw, 2rem);
-        font-weight: 900;
-        color: var(--text);
-      }
-      .stat-label {
-        margin-top: 8px;
-        font-size: 0.76rem;
-        color: var(--muted);
-      }
-
-      .preview-card {
-        background: var(--panel);
-        border: 1px solid var(--line);
-        border-radius: 30px;
-        padding: 18px;
-        box-shadow: var(--shadow);
-      }
-      .preview-panel {
-        background: linear-gradient(135deg, #5d7aff 0%, #4d69df 35%, #3447c6 100%);
-        border-radius: 24px;
-        padding: 22px 20px 18px;
-        color: white;
-      }
-      .panel-head {
-        display: flex;
-        justify-content: space-between;
-        gap: 12px;
-        align-items: flex-start;
-      }
-      .panel-head small {
-        display: block;
-        opacity: 0.8;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        font-weight: 700;
-        font-size: 0.68rem;
-      }
-      .panel-head h3 {
-        margin: 10px 0 0;
-        font-size: 2rem;
-        line-height: 1.05;
-      }
-      .status-pill {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(255,255,255,0.12);
-        border: 1px solid rgba(255,255,255,0.2);
-        border-radius: 999px;
-        padding: 8px 12px;
-        font-size: 0.74rem;
-        font-weight: 800;
-      }
-      .mini-box {
-        background: rgba(255,255,255,0.09);
-        border-radius: 18px;
-        border: 1px solid rgba(255,255,255,0.12);
-        padding: 16px;
-        margin-top: 24px;
-      }
-      .amount-row {
-        display: flex;
-        justify-content: space-between;
-        color: rgba(255,255,255,0.82);
-        font-size: 0.82rem;
-      }
-      .progress {
-        height: 12px;
-        background: rgba(255,255,255,0.2);
-        border-radius: 999px;
-        overflow: hidden;
-        margin-top: 16px;
-      }
-      .progress-bar {
-        height: 100%;
-        width: 72%;
-        background: linear-gradient(90deg, var(--accent), #ffd58e);
-        border-radius: inherit;
-      }
-      .progress-meta {
-        margin-top: 12px;
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-        font-size: 0.8rem;
-        color: rgba(255,255,255,0.9);
-      }
-      .mini-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0,1fr));
-        gap: 12px;
-        margin-top: 20px;
-      }
-      .mini-grid .box {
-        background: rgba(255,255,255,0.08);
-        border: 1px solid rgba(255,255,255,0.12);
-        border-radius: 16px;
-        padding: 12px;
-      }
-      .mini-grid .label {
-        color: rgba(255,255,255,0.8);
-        font-size: 0.7rem;
-      }
-      .mini-grid .value {
-        margin-top: 8px;
-        font-weight: 800;
-      }
-      .review-box {
-        padding: 14px 16px;
-        border: 1px solid var(--line);
-        background: #f8f9fd;
-        border-radius: 18px;
-        margin-top: 16px;
-      }
-      .review-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 12px;
-      }
-      .review-row strong {
-        display: block;
-        font-size: 0.9rem;
-      }
-      .review-row span {
-        display: block;
-        font-size: 0.72rem;
-        color: var(--muted);
-        margin-top: 4px;
-      }
-      .safe-pill {
-        background: var(--green-soft);
-        color: var(--green);
-        padding: 8px 10px;
-        border-radius: 999px;
-        font-size: 0.72rem;
-        font-weight: 800;
-      }
-
-      section { padding: 42px 0; }
-      .section-heading {
-        text-align: center;
-        margin-bottom: 22px;
-      }
-      .tag {
-        display: inline-block;
-        letter-spacing: 0.2em;
-        font-size: 0.72rem;
-        text-transform: uppercase;
-        font-weight: 800;
-        color: var(--primary);
-      }
-      .section-heading h2 {
-        margin: 14px 0 0;
-        font-size: clamp(2.2rem, 3vw, 3rem);
-        letter-spacing: -0.06em;
-      }
-
-      .features-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0,1fr));
-        gap: 22px;
-      }
-      .feature-card {
-        background: white;
-        border: 1px solid var(--line);
-        border-radius: 26px;
-        padding: 26px 22px;
-        box-shadow: var(--shadow);
-      }
-      .feature-icon {
-        width: 48px;
-        height: 48px;
-        display: grid;
-        place-items: center;
-        font-size: 1.4rem;
-        border-radius: 16px;
-        background: var(--primary-soft);
-        color: var(--primary);
-        font-weight: 900;
-      }
-      .feature-card h3 {
-        margin: 18px 0 10px;
-        font-size: 1.4rem;
-      }
-      .feature-card p {
-        margin: 0;
-        line-height: 1.7;
-        color: var(--muted);
-      }
-
-      .steps-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0,1fr));
-        gap: 20px;
-      }
-      .step-card {
-        background: white;
-        border: 1px solid var(--line);
-        border-radius: 26px;
-        padding: 26px 22px;
-        box-shadow: var(--shadow);
-      }
-      .step-number {
-        font-size: 2.7rem;
-        font-weight: 900;
-        letter-spacing: -0.08em;
-        color: var(--primary);
-      }
-      .step-card h3 {
-        margin: 10px 0 10px;
-        font-size: 1.2rem;
-      }
-      .step-card p {
-        margin: 0;
-        line-height: 1.7;
-        color: var(--muted);
-      }
-
-      .dashboard-shell {
-        background: white;
-        border: 1px solid var(--line);
-        border-radius: 30px;
-        padding: 26px;
-        box-shadow: var(--shadow);
-      }
-      .dashboard-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 18px;
-        margin-bottom: 22px;
-      }
-      .dashboard-header h3 {
-        margin: 0;
-        font-size: 2rem;
-      }
-      .dashboard-header .actions {
-        justify-content: flex-end;
-      }
-
-      .kpis {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0,1fr));
-        gap: 14px;
-        margin-bottom: 22px;
-      }
-      .kpi-card {
-        background: var(--panel-soft);
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        padding: 18px 16px;
-      }
-      .kpi-card .label {
-        color: var(--muted);
-        font-size: 0.78rem;
-      }
-      .kpi-card .value {
-        margin-top: 10px;
-        font-size: 2rem;
-        font-weight: 900;
-      }
-
-      .campaign-grid {
-        display: grid;
-        grid-template-columns: 1.5fr 0.9fr;
-        gap: 22px;
-      }
-      .campaign-list {
-        display: grid;
-        gap: 14px;
-      }
-      .campaign-item {
-        background: var(--panel-soft);
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        padding: 16px;
-      }
-      .campaign-top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 12px;
-      }
-      .campaign-name {
-        font-size: 1.05rem;
-        font-weight: 800;
-      }
-      .campaign-category {
-        color: var(--muted);
-        font-size: 0.76rem;
-        margin-top: 5px;
-      }
-      .amount {
-        font-size: 1.15rem;
-        font-weight: 900;
-      }
-      .pill {
-        display: inline-flex;
-        align-items: center;
-        border-radius: 999px;
-        padding: 7px 10px;
-        font-size: 0.72rem;
-        font-weight: 800;
-      }
-      .pill.primary {
-        background: var(--primary-soft);
-        color: var(--primary);
-      }
-      .pill.warning {
-        background: var(--amber-soft);
-        color: #b77816;
-      }
-      .pill.safe {
-        background: var(--green-soft);
-        color: var(--green);
-      }
-      .progress-line {
-        margin-top: 15px;
-        height: 10px;
-        border-radius: 999px;
-        background: #dfe7f5;
-        overflow: hidden;
-      }
-      .progress-fill {
-        height: 100%;
-        border-radius: inherit;
-        background: linear-gradient(90deg, var(--primary), #7f8fff);
-      }
-
-      .side-stack {
-        display: grid;
-        gap: 18px;
-      }
-      .side-card {
-        background: white;
-        border: 1px solid var(--line);
-        border-radius: 22px;
-        padding: 20px;
-      }
-      .side-card h4 {
-        margin: 0 0 14px;
-        font-size: 1.2rem;
-      }
-      .metric-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 10px;
-        padding: 12px 14px;
-        border-radius: 14px;
-        font-weight: 700;
-        margin-bottom: 10px;
-      }
-      .metric-item.safe { background: var(--green-soft); color: var(--green); }
-      .metric-item.warning { background: var(--amber-soft); color: #b77816; }
-      .metric-item.soft { background: #f3f7ff; color: var(--text); }
-
-      .quick-action-panel {
-        background: linear-gradient(135deg, var(--primary), var(--primary-strong));
-        color: white;
-        border-radius: 22px;
-        padding: 20px;
-      }
-      .quick-action-panel h4 {
-        margin: 0 0 14px;
-        font-size: 1.2rem;
-      }
-      .quick-links {
-        display: grid;
-        gap: 10px;
-      }
-      .quick-links a {
-        background: rgba(255,255,255,0.1);
-        border: 1px solid rgba(255,255,255,0.12);
-        border-radius: 12px;
-        padding: 12px 14px;
-        font-size: 0.92rem;
-        font-weight: 700;
-      }
-
       @media (max-width: 980px) {
-        .hero-grid, .features-grid, .steps-grid, .campaign-grid, .kpis {
+        .hero-grid {
           grid-template-columns: 1fr;
         }
         .nav { display: none; }
       }
 
       @media (max-width: 640px) {
+        .auth-container {
+          padding: 32px 20px;
+        }
         .topbar-inner, .dashboard-header {
           flex-direction: column;
           align-items: flex-start;
         }
-        .approval-badge {
-          width: 100%;
-          justify-content: center;
-        }
         .actions {
           width: 100%;
-        }
-        .btn {
-          width: 100%;
-        }
-        .stats {
-          grid-template-columns: 1fr;
         }
       }
     </style>
   </head>
   <body>
-    <header class="topbar">
-      <div class="topbar-inner">
-        <div class="brand">
-          <div class="brand-mark">K</div>
-          <div class="brand-copy">
-            <strong>KidFund</strong>
-            <span>Safe giving for kids</span>
-          </div>
+    <!-- Auth Screen - Signup/Login -->
+    <div class="auth-screen active" id="authScreen">
+      <div class="auth-container">
+        <div class="auth-header">
+          <div class="auth-logo">K</div>
+          <h1>KidFund</h1>
+          <p>Safe giving for kids</p>
         </div>
 
-        <nav class="nav">
-          <a href="#features">Features</a>
-          <a href="#how-it-works">How it works</a>
-          <a href="#dashboard">Dashboard</a>
-        </nav>
-
-        <div class="actions">
-          <button class="approval-badge alert" onclick="openApprovalModal()">
-            ⚠️ 3 fundraisers need approval
-          </button>
-          <a href="#dashboard" class="btn btn-ghost">Demo dashboard</a>
-        </div>
-      </div>
-    </header>
-
-    <!-- Approval Modal -->
-    <div class="modal" id="approvalModal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2>Approve Fundraisers</h2>
-          <button class="modal-close" onclick="closeApprovalModal()">✕</button>
+        <div class="step-indicator">
+          <div class="step-dot active" id="step1Dot"></div>
+          <div class="step-dot" id="step2Dot"></div>
         </div>
 
-        <div id="approvalList">
-          <!-- Approval items will be populated here -->
+        <!-- Step 1: Parent Email & Password -->
+        <div id="step1">
+          <div class="step-label">Step 1 of 2: Create your parent account</div>
+          
+          <form onsubmit="goToStep2(event)">
+            <div class="form-group">
+              <label>Email address</label>
+              <input type="email" id="parentEmail" placeholder="you@example.com" required />
+            </div>
+
+            <div class="form-group">
+              <label>Create password</label>
+              <input type="password" id="parentPassword" placeholder="At least 8 characters" oninput="checkPasswordStrength()" required minlength="8" />
+              <div class="password-strength" id="strengthBars">
+                <div class="strength-bar"></div>
+                <div class="strength-bar"></div>
+                <div class="strength-bar"></div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Confirm password</label>
+              <input type="password" id="parentPasswordConfirm" placeholder="Re-enter your password" required minlength="8" />
+            </div>
+
+            <button type="submit" class="auth-btn">Continue to next step</button>
+          </form>
+        </div>
+
+        <!-- Step 2: Child's Name -->
+        <div id="step2" style="display: none;">
+          <div class="step-label">Step 2 of 2: Tell us about your child</div>
+          
+          <form onsubmit="completeSignup(event)">
+            <div class="form-group">
+              <label>Child's name</label>
+              <input type="text" id="childName" placeholder="e.g., Emma" required />
+            </div>
+
+            <div class="form-group">
+              <label>Child's age</label>
+              <select id="childAge" required>
+                <option value="">Select age</option>
+                <option value="6">6 years old</option>
+                <option value="7">7 years old</option>
+                <option value="8">8 years old</option>
+                <option value="9">9 years old</option>
+                <option value="10">10 years old</option>
+                <option value="11">11 years old</option>
+                <option value="12">12 years old</option>
+                <option value="13">13 years old</option>
+              </select>
+            </div>
+
+            <button type="button" class="back-btn" onclick="goToStep1()">← Back</button>
+            <button type="submit" class="auth-btn">Complete signup</button>
+          </form>
         </div>
       </div>
     </div>
 
-    <main>
-      <section class="hero">
-        <div class="container hero-grid">
-          <div>
-            <div class="eyebrow">Parent-first fundraising</div>
-            <h1>Help kids launch good causes with confidence.</h1>
-            <p class="subtext">
-              KidFund makes it easy for children to create fundraising ideas while parents approve,
-              monitor, and protect every step of the process.
-            </p>
+    <!-- Welcome Screen -->
+    <div class="welcome-screen" id="welcomeScreen">
+      <div class="welcome-card">
+        <div class="welcome-logo">K</div>
+        <h1>Welcome to KidFund!</h1>
+        <p>Your account has been created. You're all set to help your child with safe fundraising.</p>
 
-            <div class="cta-row">
-              <a href="#create" class="btn btn-primary">Start a campaign</a>
-              <a href="#dashboard" class="btn btn-ghost">Explore dashboard</a>
-            </div>
-
-            <div class="stats">
-              <div class="stat-box">
-                <div class="stat-value">42</div>
-                <div class="stat-label">Active campaigns</div>
-              </div>
-              <div class="stat-box">
-                <div class="stat-value">18</div>
-                <div class="stat-label">Approved this week</div>
-              </div>
-              <div class="stat-box">
-                <div class="stat-value">$12.4k</div>
-                <div class="stat-label">Donations tracked</div>
-              </div>
+        <div class="welcome-info">
+          <div class="welcome-info-item">
+            <div class="welcome-info-icon">✓</div>
+            <div class="welcome-info-text">
+              <strong>Parent Account Created</strong>
+              You can now approve your child's fundraiser campaigns.
             </div>
           </div>
-
-          <div class="preview-card">
-            <div class="preview-panel">
-              <div class="panel-head">
-                <div>
-                  <small>Fundraiser preview</small>
-                  <h3>School Garden Project</h3>
-                </div>
-                <div class="status-pill">Approved</div>
-              </div>
-
-              <div class="mini-box">
-                <div class="amount-row">
-                  <span>Raised so far</span>
-                  <span>$2,430</span>
-                </div>
-                <div class="progress">
-                  <div class="progress-bar"></div>
-                </div>
-                <div class="progress-meta">
-                  <span>72% of $3,400 goal</span>
-                  <span>32 supporters</span>
-                </div>
-              </div>
-
-              <div class="mini-grid">
-                <div class="box">
-                  <div class="label">Category</div>
-                  <div class="value">School</div>
-                </div>
-                <div class="box">
-                  <div class="label">Age group</div>
-                  <div class="value">8–12</div>
-                </div>
-              </div>
+          <div class="welcome-info-item">
+            <div class="welcome-info-icon">🛡️</div>
+            <div class="welcome-info-text">
+              <strong>Privacy Protected</strong>
+              All data is encrypted and secure.
             </div>
-
-            <div class="review-box">
-              <div class="review-row">
-                <div>
-                  <strong>Parent review status</strong>
-                  <span>Approved by mom • 2 mins ago</span>
-                </div>
-                <div class="safe-pill">Ready</div>
-              </div>
+          </div>
+          <div class="welcome-info-item">
+            <div class="welcome-info-icon">👧</div>
+            <div class="welcome-info-text">
+              <strong id="welcomeChildName">Child Ready</strong>
+              Your child can now create fundraiser ideas.
             </div>
           </div>
         </div>
-      </section>
 
-      <section id="features">
-        <div class="container">
-          <div class="section-heading">
-            <div class="tag">Built for safety</div>
-            <h2>Everything families need to raise safely</h2>
+        <button class="welcome-btn" onclick="goToDashboard()">Go to Dashboard</button>
+      </div>
+    </div>
+
+    <!-- Main App -->
+    <div class="app-screen" id="appScreen">
+      <header class="topbar">
+        <div class="topbar-inner">
+          <div class="brand">
+            <div class="brand-mark">K</div>
+            <div class="brand-copy">
+              <strong>KidFund</strong>
+              <span>Safe giving for kids</span>
+            </div>
           </div>
 
-          <div class="features-grid">
-            <div class="feature-card">
-              <div class="feature-icon">✓</div>
-              <h3>Parent-approved campaigns</h3>
-              <p>Kids draft ideas, but parents approve every fundraiser before it goes live.</p>
-            </div>
-            <div class="feature-card">
-              <div class="feature-icon">🔒</div>
-              <h3>Privacy-first</h3>
-              <p>No public exposure unless the guardian approves, keeping every child profile protected.</p>
-            </div>
-            <div class="feature-card">
-              <div class="feature-icon">💙</div>
-              <h3>Easy donations</h3>
-              <p>Supporters can give quickly while parents monitor every payment and update in one place.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+          <nav class="nav">
+            <a href="#features">Features</a>
+            <a href="#dashboard">Dashboard</a>
+          </nav>
 
-      <section id="how-it-works">
-        <div class="container">
-          <div class="section-heading">
-            <div class="tag">How it works</div>
-            <h2>Simple flow, safe oversight</h2>
-          </div>
-
-          <div class="steps-grid">
-            <div class="step-card">
-              <div class="step-number">1</div>
-              <h3>Create idea</h3>
-              <p>A child shares a cause, target amount, timeline, and story.</p>
+          <div class="actions">
+            <button class="approval-badge alert" onclick="openApprovalModal()">
+              ⚠️ 3 fundraisers need approval
+            </button>
+            <div class="user-info">
+              <div class="user-name" id="displayParentEmail"></div>
+              <div class="user-child" id="displayChildName"></div>
             </div>
-            <div class="step-card">
-              <div class="step-number">2</div>
-              <h3>Parent reviews</h3>
-              <p>A guardian checks details, adds safety rules, and approves the fundraiser.</p>
-            </div>
-            <div class="step-card">
-              <div class="step-number">3</div>
-              <h3>Launch &amp; track</h3>
-              <p>The campaign goes live and the family tracks progress and donations together.</p>
-            </div>
+            <button class="logout-btn" onclick="logout()">Logout</button>
           </div>
         </div>
-      </section>
+      </header>
 
-      <section id="dashboard">
-        <div class="container">
-          <div class="dashboard-shell">
-            <div class="dashboard-header">
-              <div>
-                <div class="tag" style="margin-bottom:10px; display:inline-block;">Parent dashboard</div>
-                <h3>Welcome back, Jenna</h3>
-              </div>
-              <div class="actions">
-                <a href="#create" class="btn btn-primary">Create fundraiser</a>
-                <button class="btn btn-ghost" onclick="openApprovalModal()">Review approvals</button>
-              </div>
-            </div>
+      <!-- Approval Modal -->
+      <div class="modal" id="approvalModal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>Approve Fundraisers</h2>
+            <button class="modal-close" onclick="closeApprovalModal()">✕</button>
+          </div>
 
-            <div class="kpis">
-              <div class="kpi-card">
-                <div class="label">Active</div>
-                <div class="value">12</div>
-              </div>
-              <div class="kpi-card">
-                <div class="label">Pending</div>
-                <div class="value">3</div>
-              </div>
-              <div class="kpi-card">
-                <div class="label">Donations</div>
-                <div class="value">$8.7k</div>
-              </div>
-              <div class="kpi-card">
-                <div class="label">Families</div>
-                <div class="value">9</div>
-              </div>
-            </div>
+          <div id="approvalList">
+            <!-- Approval items will be populated here -->
+          </div>
+        </div>
+      </div>
 
-            <div class="campaign-grid">
-              <div class="campaign-list">
-                <div class="campaign-item">
-                  <div class="campaign-top">
-                    <div>
-                      <div class="campaign-name">School garden project</div>
-                      <div class="campaign-category">School</div>
-                    </div>
-                    <div class="pill primary">Approved</div>
-                    <div class="amount">$2,430</div>
-                  </div>
-                  <div class="progress-line"><div class="progress-fill" style="width:72%"></div></div>
-                </div>
+      <main>
+        <section class="hero">
+          <div class="container hero-grid">
+            <div>
+              <div class="eyebrow">Parent-first fundraising</div>
+              <h1>Help your child launch good causes with confidence.</h1>
+              <p class="subtext">
+                KidFund makes it easy for your child to create fundraising ideas while you approve,
+                monitor, and protect every step of the process.
+              </p>
 
-                <div class="campaign-item">
-                  <div class="campaign-top">
-                    <div>
-                      <div class="campaign-name">Pet shelter fundraiser</div>
-                      <div class="campaign-category">Animal care</div>
-                    </div>
-                    <div class="pill warning">Pending</div>
-                    <div class="amount">$1,120</div>
-                  </div>
-                  <div class="progress-line"><div class="progress-fill" style="width:48%"></div></div>
-                </div>
-
-                <div class="campaign-item">
-                  <div class="campaign-top">
-                    <div>
-                      <div class="campaign-name">Neighborhood cleanup</div>
-                      <div class="campaign-category">Community</div>
-                    </div>
-                    <div class="pill safe">Needs review</div>
-                    <div class="amount">$890</div>
-                  </div>
-                  <div class="progress-line"><div class="progress-fill" style="width:36%"></div></div>
-                </div>
-              </div>
-
-              <div class="side-stack">
-                <div class="side-card">
-                  <h4>Safety overview</h4>
-                  <div class="metric-item safe"><span>Approved campaigns</span><strong>12</strong></div>
-                  <div class="metric-item warning"><span>Awaiting review</span><strong>3</strong></div>
-                  <div class="metric-item soft"><span>Restricted accounts</span><strong>1</strong></div>
-                </div>
-
-                <div class="quick-action-panel">
-                  <h4>Quick actions</h4>
-                  <div class="quick-links">
-                    <a href="#create">New campaign draft</a>
-                    <button onclick="openApprovalModal()" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 12px 14px; font-size: 0.92rem; font-weight: 700; cursor: pointer; width: 100%; color: white;">Review pending approval</button>
-                    <a href="#">View public landing page</a>
-                  </div>
-                </div>
+              <div class="cta-row">
+                <button class="btn btn-primary" onclick="openApprovalModal()">Review approvals</button>
+                <a href="#dashboard" class="btn btn-ghost">Explore dashboard</a>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+    </div>
 
     <script>
+      // User data
+      let userData = {
+        parentEmail: '',
+        childName: '',
+        childAge: ''
+      };
+
       const pendingApprovals = [
         {
           id: 1,
@@ -1046,7 +879,7 @@
           category: "School",
           goalAmount: "$500",
           deadline: "June 15, 2027",
-          story: "We want to raise money for new art supplies for our school's art program. The funds will help us buy paints, brushes, sketchbooks, and other materials that our school can't afford right now."
+          story: "We want to raise money for new art supplies for our school's art program. The funds will help us buy paints, brushes, sketchbooks, and other materials."
         },
         {
           id: 2,
@@ -1055,7 +888,7 @@
           category: "Community",
           goalAmount: "$1,200",
           deadline: "July 1, 2027",
-          story: "Our local library needs help to get new books for kids. We want to collect donations to purchase books on topics kids are interested in, like science, fantasy, and history."
+          story: "Our local library needs help to get new books for kids. We want to collect donations to purchase books on topics kids are interested in."
         },
         {
           id: 3,
@@ -1064,9 +897,79 @@
           category: "Animal care",
           goalAmount: "$800",
           deadline: "June 25, 2027",
-          story: "The animal shelter near us needs supplies for the dogs and cats. We want to raise money to buy food, blankets, toys, and medicine to help the animals get better care."
+          story: "The animal shelter near us needs supplies for the dogs and cats. We want to raise money to buy food, blankets, toys, and medicine."
         }
       ];
+
+      function checkPasswordStrength() {
+        const password = document.getElementById('parentPassword').value;
+        const bars = document.querySelectorAll('.strength-bar');
+        let strength = 0;
+
+        if (password.length >= 8) strength++;
+        if (/[A-Z]/.test(password) && /[0-9]/.test(password)) strength++;
+        if (/[^A-Za-z0-9]/.test(password)) strength++;
+
+        bars.forEach((bar, index) => {
+          bar.classList.remove('filled', 'medium', 'strong');
+          if (index < strength) {
+            bar.classList.add('filled');
+            if (strength === 2) bar.classList.add('medium');
+            if (strength === 3) bar.classList.add('strong');
+          }
+        });
+      }
+
+      function goToStep2(e) {
+        e.preventDefault();
+
+        const email = document.getElementById('parentEmail').value;
+        const password = document.getElementById('parentPassword').value;
+        const passwordConfirm = document.getElementById('parentPasswordConfirm').value;
+
+        if (password !== passwordConfirm) {
+          alert('Passwords do not match!');
+          return;
+        }
+
+        userData.parentEmail = email;
+
+        document.getElementById('step1').style.display = 'none';
+        document.getElementById('step2').style.display = 'block';
+        document.getElementById('step1Dot').classList.remove('active');
+        document.getElementById('step2Dot').classList.add('active');
+      }
+
+      function goToStep1() {
+        document.getElementById('step1').style.display = 'block';
+        document.getElementById('step2').style.display = 'none';
+        document.getElementById('step1Dot').classList.add('active');
+        document.getElementById('step2Dot').classList.remove('active');
+      }
+
+      function completeSignup(e) {
+        e.preventDefault();
+
+        userData.childName = document.getElementById('childName').value;
+        userData.childAge = document.getElementById('childAge').value;
+
+        // Show welcome screen
+        document.getElementById('authScreen').classList.remove('active');
+        document.getElementById('welcomeScreen').classList.add('active');
+
+        document.getElementById('welcomeChildName').textContent = `${userData.childName} is ready!`;
+      }
+
+      function goToDashboard() {
+        document.getElementById('welcomeScreen').classList.remove('active');
+        document.getElementById('appScreen').classList.add('active');
+
+        // Display user info
+        document.getElementById('displayParentEmail').textContent = userData.parentEmail;
+        document.getElementById('displayChildName').textContent = `${userData.childName}, ${userData.childAge} yrs`;
+
+        openApprovalModal();
+      }
 
       function openApprovalModal() {
         const modal = document.getElementById('approvalModal');
@@ -1119,18 +1022,35 @@
 
       function approveFundraiser(id) {
         const approval = pendingApprovals.find(a => a.id === id);
-        alert(`✓ You approved "${approval.title}" from ${approval.childName}!\n\nThis fundraiser is now LIVE and can start accepting donations.`);
+        alert(`✓ You approved "${approval.title}"!\n\nThis fundraiser is now LIVE!`);
         closeApprovalModal();
       }
 
       function rejectFundraiser(id) {
         const approval = pendingApprovals.find(a => a.id === id);
-        alert(`⚠️ You sent "${approval.title}" back for changes.\n\n${approval.childName} will be notified to make updates before resubmitting.`);
+        alert(`⚠️ You sent "${approval.title}" back for changes.\n\nThey will be notified to make updates.`);
         closeApprovalModal();
       }
 
+      function logout() {
+        userData = {
+          parentEmail: '',
+          childName: '',
+          childAge: ''
+        };
+        document.getElementById('appScreen').classList.remove('active');
+        document.getElementById('authScreen').classList.add('active');
+        document.getElementById('welcomeScreen').classList.remove('active');
+
+        // Reset form
+        document.getElementById('step1').style.display = 'block';
+        document.getElementById('step2').style.display = 'none';
+        document.getElementById('step1Dot').classList.add('active');
+        document.getElementById('step2Dot').classList.remove('active');
+      }
+
       // Close modal when clicking outside
-      document.getElementById('approvalModal').addEventListener('click', function(e) {
+      document.getElementById('approvalModal')?.addEventListener('click', function(e) {
         if (e.target === this) {
           closeApprovalModal();
         }
