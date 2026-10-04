@@ -136,6 +136,166 @@
         color: var(--primary);
       }
 
+      .approval-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 16px;
+        background: var(--amber-soft);
+        border: 1px solid rgba(245, 166, 35, 0.3);
+        border-radius: 999px;
+        color: #b77816;
+        font-weight: 700;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+
+      .approval-badge:hover {
+        background: rgba(245, 166, 35, 0.18);
+        transform: translateY(-1px);
+      }
+
+      .approval-badge.alert {
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.8; }
+      }
+
+      /* Modal */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 100;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal.active {
+        display: flex;
+      }
+
+      .modal-content {
+        background: white;
+        border-radius: 28px;
+        padding: 32px;
+        max-width: 700px;
+        width: 90%;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+      }
+
+      .modal-header h2 {
+        margin: 0;
+        font-size: 2rem;
+      }
+
+      .modal-close {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--muted);
+        transition: 0.2s ease;
+      }
+
+      .modal-close:hover {
+        color: var(--text);
+      }
+
+      .approval-item-modal {
+        background: var(--panel-soft);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      .approval-item-modal .title {
+        font-size: 1.3rem;
+        font-weight: 900;
+        margin-bottom: 8px;
+      }
+
+      .approval-item-modal .child-name {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin-bottom: 16px;
+      }
+
+      .approval-item-modal .details {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+
+      .approval-item-modal .detail-box {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 12px;
+      }
+
+      .approval-item-modal .detail-label {
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-bottom: 4px;
+      }
+
+      .approval-item-modal .detail-value {
+        font-weight: 800;
+        font-size: 1.1rem;
+      }
+
+      .approval-item-modal .story {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 14px;
+        margin-bottom: 16px;
+        line-height: 1.6;
+      }
+
+      .approval-actions-modal {
+        display: flex;
+        gap: 12px;
+      }
+
+      .approval-actions-modal .btn {
+        flex: 1;
+        padding: 14px 16px;
+      }
+
+      .btn-approve {
+        background: linear-gradient(135deg, var(--green), #1db86f);
+        color: white;
+        box-shadow: 0 12px 28px rgba(47, 200, 141, 0.25);
+      }
+
+      .btn-reject {
+        background: #fce3e3;
+        color: var(--danger);
+        border: 1px solid rgba(239, 95, 95, 0.2);
+      }
+
+      /* Rest of the existing styles */
       .hero {
         padding: 72px 0 50px;
       }
@@ -579,158 +739,26 @@
         font-weight: 700;
       }
 
-      .approval-panel {
-        background: white;
-        border: 1px solid var(--line);
-        border-radius: 28px;
-        padding: 26px;
-        box-shadow: var(--shadow);
-      }
-      .approval-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 18px;
-        margin-bottom: 18px;
-      }
-      .approval-header h3 {
-        margin: 0;
-        font-size: 2rem;
-      }
-      .items {
-        display: grid;
-        gap: 16px;
-      }
-      .item {
-        background: var(--panel-soft);
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        padding: 18px 18px 16px;
-      }
-      .item-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 16px;
-        flex-wrap: wrap;
-      }
-      .item-title {
-        font-size: 1.08rem;
-        font-weight: 800;
-      }
-      .item-sub {
-        color: var(--muted);
-        font-size: 0.8rem;
-        margin-top: 5px;
-      }
-      .item-actions {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        flex-wrap: wrap;
-      }
-      .mini-btn {
-        border: none;
-        padding: 9px 14px;
-        border-radius: 999px;
-        font-weight: 800;
-        cursor: pointer;
-      }
-      .mini-btn.primary { background: var(--primary); color: white; }
-      .mini-btn.light { background: white; border: 1px solid var(--line); color: var(--text); }
-      .item-note {
-        margin-top: 12px;
-        color: var(--muted);
-        line-height: 1.6;
-      }
-
-      .form-card {
-        background: white;
-        border: 1px solid var(--line);
-        border-radius: 30px;
-        padding: 28px;
-        box-shadow: var(--shadow);
-      }
-      .form-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 18px;
-        margin-bottom: 26px;
-      }
-      .form-header h3 {
-        margin: 0;
-        font-size: 2rem;
-      }
-      .form-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0,1fr));
-        gap: 22px;
-      }
-      .field {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-      .field label {
-        font-size: 0.85rem;
-        font-weight: 800;
-      }
-      .field input, .field select, .field textarea {
-        width: 100%;
-        background: #f8faff;
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        padding: 14px 15px;
-        color: var(--text);
-        outline: none;
-      }
-      .field input:focus, .field select:focus, .field textarea:focus {
-        border-color: rgba(91,124,255,0.65);
-        box-shadow: 0 0 0 4px rgba(91,124,255,0.08);
-      }
-      .field textarea {
-        min-height: 180px;
-        resize: vertical;
-      }
-      .form-actions {
-        margin-top: 24px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 16px;
-        flex-wrap: wrap;
-        padding: 16px 18px;
-        background: #f8faff;
-        border: 1px solid var(--line);
-        border-radius: 18px;
-      }
-      .meta-text {
-        color: var(--muted);
-        font-size: 0.88rem;
-      }
-      .inline-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-
       @media (max-width: 980px) {
-        .hero-grid, .features-grid, .steps-grid, .campaign-grid, .kpis, .form-grid {
+        .hero-grid, .features-grid, .steps-grid, .campaign-grid, .kpis {
           grid-template-columns: 1fr;
         }
         .nav { display: none; }
       }
 
       @media (max-width: 640px) {
-        .topbar-inner, .dashboard-header, .approval-header, .form-header, .item-row, .form-actions, .review-row, .campaign-top {
+        .topbar-inner, .dashboard-header {
           flex-direction: column;
           align-items: flex-start;
         }
-        .actions, .inline-actions {
+        .approval-badge {
+          width: 100%;
+          justify-content: center;
+        }
+        .actions {
           width: 100%;
         }
-        .btn, .mini-btn {
+        .btn {
           width: 100%;
         }
         .stats {
@@ -757,11 +785,27 @@
         </nav>
 
         <div class="actions">
+          <button class="approval-badge alert" onclick="openApprovalModal()">
+            ⚠️ 3 fundraisers need approval
+          </button>
           <a href="#dashboard" class="btn btn-ghost">Demo dashboard</a>
-          <a href="#approval" class="btn btn-primary">Approval queue</a>
         </div>
       </div>
     </header>
+
+    <!-- Approval Modal -->
+    <div class="modal" id="approvalModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Approve Fundraisers</h2>
+          <button class="modal-close" onclick="closeApprovalModal()">✕</button>
+        </div>
+
+        <div id="approvalList">
+          <!-- Approval items will be populated here -->
+        </div>
+      </div>
+    </div>
 
     <main>
       <section class="hero">
@@ -908,7 +952,7 @@
               </div>
               <div class="actions">
                 <a href="#create" class="btn btn-primary">Create fundraiser</a>
-                <a href="#approval" class="btn btn-ghost">Approval queue</a>
+                <button class="btn btn-ghost" onclick="openApprovalModal()">Review approvals</button>
               </div>
             </div>
 
@@ -982,7 +1026,7 @@
                   <h4>Quick actions</h4>
                   <div class="quick-links">
                     <a href="#create">New campaign draft</a>
-                    <a href="#approval">Review pending approval</a>
+                    <button onclick="openApprovalModal()" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 12px 14px; font-size: 0.92rem; font-weight: 700; cursor: pointer; width: 100%; color: white;">Review pending approval</button>
                     <a href="#">View public landing page</a>
                   </div>
                 </div>
@@ -991,115 +1035,106 @@
           </div>
         </div>
       </section>
-
-      <section id="approval">
-        <div class="container">
-          <div class="approval-panel">
-            <div class="approval-header">
-              <h3>Review fundraiser requests</h3>
-              <a href="#dashboard" class="btn btn-ghost">Back to dashboard</a>
-            </div>
-
-            <div class="items">
-              <div class="item">
-                <div class="item-row">
-                  <div>
-                    <div class="item-title">Bake sale for art club</div>
-                    <div class="item-sub">Submitted by Ella</div>
-                  </div>
-                  <div class="item-actions">
-                    <span class="pill primary">Pending review</span>
-                    <button class="mini-btn primary">Approve</button>
-                    <button class="mini-btn light">Review</button>
-                  </div>
-                </div>
-                <div class="item-note">Need approval for the goal and image before launch.</div>
-              </div>
-
-              <div class="item">
-                <div class="item-row">
-                  <div>
-                    <div class="item-title">Community library drive</div>
-                    <div class="item-sub">Submitted by Leo</div>
-                  </div>
-                  <div class="item-actions">
-                    <span class="pill warning">Needs parent action</span>
-                    <button class="mini-btn primary">Approve</button>
-                    <button class="mini-btn light">Review</button>
-                  </div>
-                </div>
-                <div class="item-note">Awaiting parent confirmation and updated safety notes.</div>
-              </div>
-
-              <div class="item">
-                <div class="item-row">
-                  <div>
-                    <div class="item-title">Animal shelter fundraiser</div>
-                    <div class="item-sub">Submitted by Mia</div>
-                  </div>
-                  <div class="item-actions">
-                    <span class="pill safe">Approved</span>
-                    <button class="mini-btn primary">Approve</button>
-                    <button class="mini-btn light">Review</button>
-                  </div>
-                </div>
-                <div class="item-note">Ready to publish with a parent-approved story and selected image.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="create">
-        <div class="container">
-          <div class="form-card">
-            <div class="form-header">
-              <h3>Create a campaign</h3>
-              <a href="#dashboard" class="btn btn-ghost">Save draft</a>
-            </div>
-
-            <div class="form-grid">
-              <div class="field">
-                <label>Fundraiser title</label>
-                <input type="text" value="School Garden Project" />
-              </div>
-
-              <div class="field">
-                <label>Goal amount</label>
-                <input type="text" value="$3,400" />
-              </div>
-
-              <div class="field">
-                <label>Category</label>
-                <select>
-                  <option selected>School</option>
-                  <option>Community</option>
-                  <option>Animal care</option>
-                  <option>Sports</option>
-                </select>
-              </div>
-
-              <div class="field">
-                <label>Deadline</label>
-                <input type="text" value="June 20, 2027" />
-              </div>
-
-              <div class="field" style="grid-column: 1 / -1;">
-                <label>Campaign story</label>
-                <textarea>We want to grow flowers, herbs, and vegetables for our school and help students learn about nature, teamwork, and healthy eating.</textarea>
-              </div>
-            </div>
-
-            <div class="form-actions">
-              <div class="meta-text">Status: Draft saved • Waiting for parent review</div>
-              <div class="inline-actions">
-                <button class="btn btn-ghost">Cancel</button>
-                <a href="#approval" class="btn btn-primary">Submit for approval</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
+
+    <script>
+      const pendingApprovals = [
+        {
+          id: 1,
+          title: "Bake sale for art club",
+          childName: "Ella (Age 10)",
+          category: "School",
+          goalAmount: "$500",
+          deadline: "June 15, 2027",
+          story: "We want to raise money for new art supplies for our school's art program. The funds will help us buy paints, brushes, sketchbooks, and other materials that our school can't afford right now."
+        },
+        {
+          id: 2,
+          title: "Community library drive",
+          childName: "Leo (Age 9)",
+          category: "Community",
+          goalAmount: "$1,200",
+          deadline: "July 1, 2027",
+          story: "Our local library needs help to get new books for kids. We want to collect donations to purchase books on topics kids are interested in, like science, fantasy, and history."
+        },
+        {
+          id: 3,
+          title: "Animal shelter fundraiser",
+          childName: "Mia (Age 11)",
+          category: "Animal care",
+          goalAmount: "$800",
+          deadline: "June 25, 2027",
+          story: "The animal shelter near us needs supplies for the dogs and cats. We want to raise money to buy food, blankets, toys, and medicine to help the animals get better care."
+        }
+      ];
+
+      function openApprovalModal() {
+        const modal = document.getElementById('approvalModal');
+        const list = document.getElementById('approvalList');
+        list.innerHTML = '';
+
+        pendingApprovals.forEach(approval => {
+          const html = `
+            <div class="approval-item-modal">
+              <div class="title">${approval.title}</div>
+              <div class="child-name">From: ${approval.childName}</div>
+              
+              <div class="details">
+                <div class="detail-box">
+                  <div class="detail-label">Category</div>
+                  <div class="detail-value">${approval.category}</div>
+                </div>
+                <div class="detail-box">
+                  <div class="detail-label">Goal</div>
+                  <div class="detail-value">${approval.goalAmount}</div>
+                </div>
+                <div class="detail-box">
+                  <div class="detail-label">Deadline</div>
+                  <div class="detail-value">${approval.deadline}</div>
+                </div>
+                <div class="detail-box">
+                  <div class="detail-label">Status</div>
+                  <div class="detail-value" style="color: #f5a623;">Pending</div>
+                </div>
+              </div>
+              
+              <div class="story">${approval.story}</div>
+              
+              <div class="approval-actions-modal">
+                <button class="btn btn-approve" onclick="approveFundraiser(${approval.id})">✓ Approve</button>
+                <button class="btn btn-reject" onclick="rejectFundraiser(${approval.id})">✕ Needs Changes</button>
+              </div>
+            </div>
+          `;
+          list.innerHTML += html;
+        });
+
+        modal.classList.add('active');
+      }
+
+      function closeApprovalModal() {
+        const modal = document.getElementById('approvalModal');
+        modal.classList.remove('active');
+      }
+
+      function approveFundraiser(id) {
+        const approval = pendingApprovals.find(a => a.id === id);
+        alert(`✓ You approved "${approval.title}" from ${approval.childName}!\n\nThis fundraiser is now LIVE and can start accepting donations.`);
+        closeApprovalModal();
+      }
+
+      function rejectFundraiser(id) {
+        const approval = pendingApprovals.find(a => a.id === id);
+        alert(`⚠️ You sent "${approval.title}" back for changes.\n\n${approval.childName} will be notified to make updates before resubmitting.`);
+        closeApprovalModal();
+      }
+
+      // Close modal when clicking outside
+      document.getElementById('approvalModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+          closeApprovalModal();
+        }
+      });
+    </script>
   </body>
 </html>
