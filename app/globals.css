@@ -1,0 +1,59 @@
+import Link from 'next/link';
+
+export default function CreateFundraiserPage() {
+  return (
+    <main className="min-h-screen bg-soft p-6 text-ink md:p-10">
+      <div className="mx-auto max-w-4xl rounded-[30px] border border-slate-200 bg-white p-6 shadow-soft md:p-8">
+        <div className="mb-8 flex items-center justify-between">
+          <div>
+            <div className="text-sm uppercase tracking-[0.2em] text-primary">New fundraiser</div>
+            <h1 className="mt-2 text-3xl font-black text-night">Create a campaign</h1>
+          </div>
+
+          <Link href="/dashboard" className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700">
+            Save draft
+          </Link>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          <div className="space-y-5">
+            <div>
+              <label className="mb-2 block text-sm font-semibold text-slate-700">Fundraiser title</label>
+              <input className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none focus:border-primary" defaultValue="School Garden Project" />
+            </div>
+
+            <div>
+              <label className="mb-2 block text-sm font-semibold text-slate-700">Goal amount</label>
+              <input className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none focus:border-primary" defaultValue="$3,400" />
+            </div>
+
+            <div>
+              <label className="mb-2 block text-sm font-semibold text-slate-700">Category</label>
+              <select className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none focus:border-primary" defaultValue="School">
+                <option>School</option>
+                <option>Animal care</option>
+                <option>Community</option>
+                <option>Sports</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="space-y-5">
+            <div>
+              <label className="mb-2 block text-sm font-semibold text-slate-700">Campaign story</label>
+              <textarea className="min-h-[180px] w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none focus:border-primary" defaultValue="We want to grow flowers, herbs, and vegetables for our school and help students learn about nature, teamwork, and healthy eating." />
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-8 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+          <div className="text-sm text-slate-600">Status: Draft saved • Waiting for parent review</div>
+          <div className="flex gap-3">
+            <button className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700">Cancel</button>
+            <Link href="/approval" className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white">Submit for approval</Link>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}
