@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KidFund</title>
+    <style>
+      :root {
+        --bg: #f4f7ff;
+        --panel: #ffffff;
+        --panel-soft: #f8faff;
+        --primary: #5b7cff;
+        --primary-strong: #3d5de6;
+        --primary-soft: rgba(91, 124, 255, 0.12);
+        --accent: #ffbf69;
+        --green: #2fc88d;
+        --green-soft: rgba(47, 200, 141, 0.12);
+        --amber: #f5a623;
+        --amber-soft: rgba(245, 166, 35, 0.12);
+        --danger: #ef5f5f;
+        --text: #1d2433;
+        --muted: #67738b;
+        --line: #e7ecf5;
+        --shadow: 0 16px 40px rgba(23, 31, 54, 0.08);
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: linear-gradient(180deg, #eef4ff 0%, #f9fbff 100%);
+        color: var(--text);
+      }
+      a { color: inherit; text-decoration: none; }
+      button, input, select, textarea { font: inherit; }
+      img { max-width: 100%; display: block; }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 22px;
+      }
+
+      .topbar {
+        background: rgba(255,255,255,0.82);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(113, 130, 160, 0.12);
+        position: sticky;
+        top: 0;
+        z-index: 20;
+      }
+
+      .topbar-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 16px 22px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .brand-mark {
+        width: 44px;
+        height: 44px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, var(--primary), #7d93ff);
+        display: grid;
+        place-items: center;
+        color: white;
+        font-weight: 900;
+        font-size: 1.2rem;
+        box-shadow: 0 10px 24px rgba(91,124,255,0.3);
+      }
+
+      .brand-copy strong {
+        display: block;
+        font-size: 1.1rem;
+      }
+
+      .brand-copy span {
+        font-size: 0.75rem;
+        color: var(--muted);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 26px;
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      .nav a { transition: 0.2s ease; }
+      .nav a:hover { color: var(--primary); }
+
+      .actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        padding: 12px 18px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.2s ease;
+        user-select: none;
+      }
+
+      .btn:hover { transform: translateY(-1px); }
+      .btn-primary {
+        background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+        color: white;
+        box-shadow: 0 12px 28px rgba(91,124,255,0.25);
+      }
+      .btn-ghost {
+        border-color: var(--line);
+        background: white;
+        color: var(--text);
+      }
+      .btn-light {
+        background: rgba(91,124,255,0.08);
+        color: var(--primary);
+      }
+
+      .hero {
+        padding: 72px 0 50px;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 48px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--primary-soft);
+        border: 1px solid rgba(91,124,255,0.15);
+        color: var(--primary);
+        padding: 8px 12px;
+        border-radius: 999px;
+        font-size: 0.7rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-weight: 800;
+      }
+
+      h1 {
+        margin: 18px 0 20px;
+        font-size: clamp(2.8rem, 5vw, 5rem);
+        line-height: 0.96;
+        letter-spacing: -0.06em;
+        color: var(--text);
+      }
+
+      .subtext {
+        font-size: 1.15rem;
+        line-height: 1.7;
+        color: var(--muted);
+        max-width: 590px;
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 28px;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0,1fr));
+        gap: 14px;
+        max-width: 520px;
+        margin-top: 34px;
+      }
+      .stat-box {
+        background: rgba(255,255,255,0.8);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 18px 16px;
+        box-shadow: var(--shadow);
+      }
+      .stat-value {
+        font-size: clamp(1.4rem, 2.4vw, 2rem);
+        font-weight: 900;
+        color: var(--text);
+      }
+      .stat-label {
+        margin-top: 8px;
+        font-size: 0.76rem;
+        color: var(--muted);
+      }
+
+      .preview-card {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 30px;
+        padding: 18px;
+        box-shadow: var(--shadow);
+      }
+      .preview-panel {
+        background: linear-gradient(135deg, #5d7aff 0%, #4d69df 35%, #3447c6 100%);
+        border-radius: 24px;
+        padding: 22px 20px 18px;
+        color: white;
+      }
+      .panel-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: flex-start;
+      }
+      .panel-head small {
+        display: block;
+        opacity: 0.8;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 0.68rem;
+      }
+      .panel-head h3 {
+        margin: 10px 0 0;
+        font-size: 2rem;
+        line-height: 1.05;
+      }
+      .status-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255,255,255,0.12);
+        border: 1px solid rgba(255,255,255,0.2);
+        border-radius: 999px;
+        padding: 8px 12px;
+        font-size: 0.74rem;
+        font-weight: 800;
+      }
+      .mini-box {
+        background: rgba(255,255,255,0.09);
+        border-radius: 18px;
+        border: 1px solid rgba(255,255,255,0.12);
+        padding: 16px;
+        margin-top: 24px;
+      }
+      .amount-row {
+        display: flex;
+        justify-content: space-between;
+        color: rgba(255,255,255,0.82);
+        font-size: 0.82rem;
+      }
+      .progress {
+        height: 12px;
+        background: rgba(255,255,255,0.2);
+        border-radius: 999px;
+        overflow: hidden;
+        margin-top: 16px;
+      }
+      .progress-bar {
+        height: 100%;
+        width: 72%;
+        background: linear-gradient(90deg, var(--accent), #ffd58e);
+        border-radius: inherit;
+      }
+      .progress-meta {
+        margin-top: 12px;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 0.8rem;
+        color: rgba(255,255,255,0.9);
+      }
+      .mini-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0,1fr));
+        gap: 12px;
+        margin-top: 20px;
+      }
+      .mini-grid .box {
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 16px;
+        padding: 12px;
+      }
+      .mini-grid .label {
+        color: rgba(255,255,255,0.8);
+        font-size: 0.7rem;
+      }
+      .mini-grid .value {
+        margin-top: 8px;
+        font-weight: 800;
+      }
+      .review-box {
+        padding: 14px 16px;
+        border: 1px solid var(--line);
+        background: #f8f9fd;
+        border-radius: 18px;
+        margin-top: 16px;
+      }
+      .review-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+      .review-row strong {
+        display: block;
+        font-size: 0.9rem;
+      }
+      .review-row span {
+        display: block;
+        font-size: 0.72rem;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+      .safe-pill {
+        background: var(--green-soft);
+        color: var(--green);
+        padding: 8px 10px;
+        border-radius: 999px;
+        font-size: 0.72rem;
+        font-weight: 800;
+      }
+
+      section { padding: 42px 0; }
+      .section-heading {
+        text-align: center;
+        margin-bottom: 22px;
+      }
+      .tag {
+        display: inline-block;
+        letter-spacing: 0.2em;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        font-weight: 800;
+        color: var(--primary);
+      }
+      .section-heading h2 {
+        margin: 14px 0 0;
+        font-size: clamp(2.2rem, 3vw, 3rem);
+        letter-spacing: -0.06em;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0,1fr));
+        gap: 22px;
+      }
+      .feature-card {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 26px;
+        padding: 26px 22px;
+        box-shadow: var(--shadow);
+      }
+      .feature-icon {
+        width: 48px;
+        height: 48px;
+        display: grid;
+        place-items: center;
+        font-size: 1.4rem;
+        border-radius: 16px;
+        background: var(--primary-soft);
+        color: var(--primary);
+        font-weight: 900;
+      }
+      .feature-card h3 {
+        margin: 18px 0 10px;
+        font-size: 1.4rem;
+      }
+      .feature-card p {
+        margin: 0;
+        line-height: 1.7;
+        color: var(--muted);
+      }
+
+      .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0,1fr));
+        gap: 20px;
+      }
+      .step-card {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 26px;
+        padding: 26px 22px;
+        box-shadow: var(--shadow);
+      }
+      .step-number {
+        font-size: 2.7rem;
+        font-weight: 900;
+        letter-spacing: -0.08em;
+        color: var(--primary);
+      }
+      .step-card h3 {
+        margin: 10px 0 10px;
+        font-size: 1.2rem;
+      }
+      .step-card p {
+        margin: 0;
+        line-height: 1.7;
+        color: var(--muted);
+      }
+
+      .dashboard-shell {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 30px;
+        padding: 26px;
+        box-shadow: var(--shadow);
+      }
+      .dashboard-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 18px;
+        margin-bottom: 22px;
+      }
+      .dashboard-header h3 {
+        margin: 0;
+        font-size: 2rem;
+      }
+      .dashboard-header .actions {
+        justify-content: flex-end;
+      }
+
+      .kpis {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0,1fr));
+        gap: 14px;
+        margin-bottom: 22px;
+      }
+      .kpi-card {
+        background: var(--panel-soft);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 18px 16px;
+      }
+      .kpi-card .label {
+        color: var(--muted);
+        font-size: 0.78rem;
+      }
+      .kpi-card .value {
+        margin-top: 10px;
+        font-size: 2rem;
+        font-weight: 900;
+      }
+
+      .campaign-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 0.9fr;
+        gap: 22px;
+      }
+      .campaign-list {
+        display: grid;
+        gap: 14px;
+      }
+      .campaign-item {
+        background: var(--panel-soft);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 16px;
+      }
+      .campaign-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+      .campaign-name {
+        font-size: 1.05rem;
+        font-weight: 800;
+      }
+      .campaign-category {
+        color: var(--muted);
+        font-size: 0.76rem;
+        margin-top: 5px;
+      }
+      .amount {
+        font-size: 1.15rem;
+        font-weight: 900;
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        border-radius: 999px;
+        padding: 7px 10px;
+        font-size: 0.72rem;
+        font-weight: 800;
+      }
+      .pill.primary {
+        background: var(--primary-soft);
+        color: var(--primary);
+      }
+      .pill.warning {
+        background: var(--amber-soft);
+        color: #b77816;
+      }
+      .pill.safe {
+        background: var(--green-soft);
+        color: var(--green);
+      }
+      .progress-line {
+        margin-top: 15px;
+        height: 10px;
+        border-radius: 999px;
+        background: #dfe7f5;
+        overflow: hidden;
+      }
+      .progress-fill {
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, var(--primary), #7f8fff);
+      }
+
+      .side-stack {
+        display: grid;
+        gap: 18px;
+      }
+      .side-card {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 20px;
+      }
+      .side-card h4 {
+        margin: 0 0 14px;
+        font-size: 1.2rem;
+      }
+      .metric-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+      .metric-item.safe { background: var(--green-soft); color: var(--green); }
+      .metric-item.warning { background: var(--amber-soft); color: #b77816; }
+      .metric-item.soft { background: #f3f7ff; color: var(--text); }
+
+      .quick-action-panel {
+        background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+        color: white;
+        border-radius: 22px;
+        padding: 20px;
+      }
+      .quick-action-panel h4 {
+        margin: 0 0 14px;
+        font-size: 1.2rem;
+      }
+      .quick-links {
+        display: grid;
+        gap: 10px;
+      }
+      .quick-links a {
+        background: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 12px;
+        padding: 12px 14px;
+        font-size: 0.92rem;
+        font-weight: 700;
+      }
+
+      .approval-panel {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        padding: 26px;
+        box-shadow: var(--shadow);
+      }
+      .approval-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 18px;
+        margin-bottom: 18px;
+      }
+      .approval-header h3 {
+        margin: 0;
+        font-size: 2rem;
+      }
+      .items {
+        display: grid;
+        gap: 16px;
+      }
+      .item {
+        background: var(--panel-soft);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 18px 18px 16px;
+      }
+      .item-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .item-title {
+        font-size: 1.08rem;
+        font-weight: 800;
+      }
+      .item-sub {
+        color: var(--muted);
+        font-size: 0.8rem;
+        margin-top: 5px;
+      }
+      .item-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .mini-btn {
+        border: none;
+        padding: 9px 14px;
+        border-radius: 999px;
+        font-weight: 800;
+        cursor: pointer;
+      }
+      .mini-btn.primary { background: var(--primary); color: white; }
+      .mini-btn.light { background: white; border: 1px solid var(--line); color: var(--text); }
+      .item-note {
+        margin-top: 12px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .form-card {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 30px;
+        padding: 28px;
+        box-shadow: var(--shadow);
+      }
+      .form-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 18px;
+        margin-bottom: 26px;
+      }
+      .form-header h3 {
+        margin: 0;
+        font-size: 2rem;
+      }
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0,1fr));
+        gap: 22px;
+      }
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .field label {
+        font-size: 0.85rem;
+        font-weight: 800;
+      }
+      .field input, .field select, .field textarea {
+        width: 100%;
+        background: #f8faff;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 14px 15px;
+        color: var(--text);
+        outline: none;
+      }
+      .field input:focus, .field select:focus, .field textarea:focus {
+        border-color: rgba(91,124,255,0.65);
+        box-shadow: 0 0 0 4px rgba(91,124,255,0.08);
+      }
+      .field textarea {
+        min-height: 180px;
+        resize: vertical;
+      }
+      .form-actions {
+        margin-top: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        padding: 16px 18px;
+        background: #f8faff;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+      }
+      .meta-text {
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+      .inline-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      @media (max-width: 980px) {
+        .hero-grid, .features-grid, .steps-grid, .campaign-grid, .kpis, .form-grid {
+          grid-template-columns: 1fr;
+        }
+        .nav { display: none; }
+      }
+
+      @media (max-width: 640px) {
+        .topbar-inner, .dashboard-header, .approval-header, .form-header, .item-row, .form-actions, .review-row, .campaign-top {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .actions, .inline-actions {
+          width: 100%;
+        }
+        .btn, .mini-btn {
+          width: 100%;
+        }
+        .stats {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <div class="brand-mark">K</div>
+          <div class="brand-copy">
+            <strong>KidFund</strong>
+            <span>Safe giving for kids</span>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How it works</a>
+          <a href="#dashboard">Dashboard</a>
+        </nav>
+
+        <div class="actions">
+          <a href="#dashboard" class="btn btn-ghost">Demo dashboard</a>
+          <a href="#approval" class="btn btn-primary">Approval queue</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow">Parent-first fundraising</div>
+            <h1>Help kids launch good causes with confidence.</h1>
+            <p class="subtext">
+              KidFund makes it easy for children to create fundraising ideas while parents approve,
+              monitor, and protect every step of the process.
+            </p>
+
+            <div class="cta-row">
+              <a href="#create" class="btn btn-primary">Start a campaign</a>
+              <a href="#dashboard" class="btn btn-ghost">Explore dashboard</a>
+            </div>
+
+            <div class="stats">
+              <div class="stat-box">
+                <div class="stat-value">42</div>
+                <div class="stat-label">Active campaigns</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-value">18</div>
+                <div class="stat-label">Approved this week</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-value">$12.4k</div>
+                <div class="stat-label">Donations tracked</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="preview-card">
+            <div class="preview-panel">
+              <div class="panel-head">
+                <div>
+                  <small>Fundraiser preview</small>
+                  <h3>School Garden Project</h3>
+                </div>
+                <div class="status-pill">Approved</div>
+              </div>
+
+              <div class="mini-box">
+                <div class="amount-row">
+                  <span>Raised so far</span>
+                  <span>$2,430</span>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar"></div>
+                </div>
+                <div class="progress-meta">
+                  <span>72% of $3,400 goal</span>
+                  <span>32 supporters</span>
+                </div>
+              </div>
+
+              <div class="mini-grid">
+                <div class="box">
+                  <div class="label">Category</div>
+                  <div class="value">School</div>
+                </div>
+                <div class="box">
+                  <div class="label">Age group</div>
+                  <div class="value">8–12</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-box">
+              <div class="review-row">
+                <div>
+                  <strong>Parent review status</strong>
+                  <span>Approved by mom • 2 mins ago</span>
+                </div>
+                <div class="safe-pill">Ready</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features">
+        <div class="container">
+          <div class="section-heading">
+            <div class="tag">Built for safety</div>
+            <h2>Everything families need to raise safely</h2>
+          </div>
+
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">✓</div>
+              <h3>Parent-approved campaigns</h3>
+              <p>Kids draft ideas, but parents approve every fundraiser before it goes live.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">🔒</div>
+              <h3>Privacy-first</h3>
+              <p>No public exposure unless the guardian approves, keeping every child profile protected.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">💙</div>
+              <h3>Easy donations</h3>
+              <p>Supporters can give quickly while parents monitor every payment and update in one place.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="how-it-works">
+        <div class="container">
+          <div class="section-heading">
+            <div class="tag">How it works</div>
+            <h2>Simple flow, safe oversight</h2>
+          </div>
+
+          <div class="steps-grid">
+            <div class="step-card">
+              <div class="step-number">1</div>
+              <h3>Create idea</h3>
+              <p>A child shares a cause, target amount, timeline, and story.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-number">2</div>
+              <h3>Parent reviews</h3>
+              <p>A guardian checks details, adds safety rules, and approves the fundraiser.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-number">3</div>
+              <h3>Launch &amp; track</h3>
+              <p>The campaign goes live and the family tracks progress and donations together.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="dashboard">
+        <div class="container">
+          <div class="dashboard-shell">
+            <div class="dashboard-header">
+              <div>
+                <div class="tag" style="margin-bottom:10px; display:inline-block;">Parent dashboard</div>
+                <h3>Welcome back, Jenna</h3>
+              </div>
+              <div class="actions">
+                <a href="#create" class="btn btn-primary">Create fundraiser</a>
+                <a href="#approval" class="btn btn-ghost">Approval queue</a>
+              </div>
+            </div>
+
+            <div class="kpis">
+              <div class="kpi-card">
+                <div class="label">Active</div>
+                <div class="value">12</div>
+              </div>
+              <div class="kpi-card">
+                <div class="label">Pending</div>
+                <div class="value">3</div>
+              </div>
+              <div class="kpi-card">
+                <div class="label">Donations</div>
+                <div class="value">$8.7k</div>
+              </div>
+              <div class="kpi-card">
+                <div class="label">Families</div>
+                <div class="value">9</div>
+              </div>
+            </div>
+
+            <div class="campaign-grid">
+              <div class="campaign-list">
+                <div class="campaign-item">
+                  <div class="campaign-top">
+                    <div>
+                      <div class="campaign-name">School garden project</div>
+                      <div class="campaign-category">School</div>
+                    </div>
+                    <div class="pill primary">Approved</div>
+                    <div class="amount">$2,430</div>
+                  </div>
+                  <div class="progress-line"><div class="progress-fill" style="width:72%"></div></div>
+                </div>
+
+                <div class="campaign-item">
+                  <div class="campaign-top">
+                    <div>
+                      <div class="campaign-name">Pet shelter fundraiser</div>
+                      <div class="campaign-category">Animal care</div>
+                    </div>
+                    <div class="pill warning">Pending</div>
+                    <div class="amount">$1,120</div>
+                  </div>
+                  <div class="progress-line"><div class="progress-fill" style="width:48%"></div></div>
+                </div>
+
+                <div class="campaign-item">
+                  <div class="campaign-top">
+                    <div>
+                      <div class="campaign-name">Neighborhood cleanup</div>
+                      <div class="campaign-category">Community</div>
+                    </div>
+                    <div class="pill safe">Needs review</div>
+                    <div class="amount">$890</div>
+                  </div>
+                  <div class="progress-line"><div class="progress-fill" style="width:36%"></div></div>
+                </div>
+              </div>
+
+              <div class="side-stack">
+                <div class="side-card">
+                  <h4>Safety overview</h4>
+                  <div class="metric-item safe"><span>Approved campaigns</span><strong>12</strong></div>
+                  <div class="metric-item warning"><span>Awaiting review</span><strong>3</strong></div>
+                  <div class="metric-item soft"><span>Restricted accounts</span><strong>1</strong></div>
+                </div>
+
+                <div class="quick-action-panel">
+                  <h4>Quick actions</h4>
+                  <div class="quick-links">
+                    <a href="#create">New campaign draft</a>
+                    <a href="#approval">Review pending approval</a>
+                    <a href="#">View public landing page</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="approval">
+        <div class="container">
+          <div class="approval-panel">
+            <div class="approval-header">
+              <h3>Review fundraiser requests</h3>
+              <a href="#dashboard" class="btn btn-ghost">Back to dashboard</a>
+            </div>
+
+            <div class="items">
+              <div class="item">
+                <div class="item-row">
+                  <div>
+                    <div class="item-title">Bake sale for art club</div>
+                    <div class="item-sub">Submitted by Ella</div>
+                  </div>
+                  <div class="item-actions">
+                    <span class="pill primary">Pending review</span>
+                    <button class="mini-btn primary">Approve</button>
+                    <button class="mini-btn light">Review</button>
+                  </div>
+                </div>
+                <div class="item-note">Need approval for the goal and image before launch.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-row">
+                  <div>
+                    <div class="item-title">Community library drive</div>
+                    <div class="item-sub">Submitted by Leo</div>
+                  </div>
+                  <div class="item-actions">
+                    <span class="pill warning">Needs parent action</span>
+                    <button class="mini-btn primary">Approve</button>
+                    <button class="mini-btn light">Review</button>
+                  </div>
+                </div>
+                <div class="item-note">Awaiting parent confirmation and updated safety notes.</div>
+              </div>
+
+              <div class="item">
+                <div class="item-row">
+                  <div>
+                    <div class="item-title">Animal shelter fundraiser</div>
+                    <div class="item-sub">Submitted by Mia</div>
+                  </div>
+                  <div class="item-actions">
+                    <span class="pill safe">Approved</span>
+                    <button class="mini-btn primary">Approve</button>
+                    <button class="mini-btn light">Review</button>
+                  </div>
+                </div>
+                <div class="item-note">Ready to publish with a parent-approved story and selected image.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="create">
+        <div class="container">
+          <div class="form-card">
+            <div class="form-header">
+              <h3>Create a campaign</h3>
+              <a href="#dashboard" class="btn btn-ghost">Save draft</a>
+            </div>
+
+            <div class="form-grid">
+              <div class="field">
+                <label>Fundraiser title</label>
+                <input type="text" value="School Garden Project" />
+              </div>
+
+              <div class="field">
+                <label>Goal amount</label>
+                <input type="text" value="$3,400" />
+              </div>
+
+              <div class="field">
+                <label>Category</label>
+                <select>
+                  <option selected>School</option>
+                  <option>Community</option>
+                  <option>Animal care</option>
+                  <option>Sports</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label>Deadline</label>
+                <input type="text" value="June 20, 2027" />
+              </div>
+
+              <div class="field" style="grid-column: 1 / -1;">
+                <label>Campaign story</label>
+                <textarea>We want to grow flowers, herbs, and vegetables for our school and help students learn about nature, teamwork, and healthy eating.</textarea>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <div class="meta-text">Status: Draft saved • Waiting for parent review</div>
+              <div class="inline-actions">
+                <button class="btn btn-ghost">Cancel</button>
+                <a href="#approval" class="btn btn-primary">Submit for approval</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
