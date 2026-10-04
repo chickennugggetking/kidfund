@@ -222,6 +222,254 @@
         background: var(--panel-soft);
       }
 
+      .tab-btn {
+        display: inline-block;
+        background: none;
+        border: none;
+        border-bottom: 3px solid transparent;
+        color: var(--muted);
+        padding: 12px 0;
+        margin-right: 24px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+
+      .tab-btn.active {
+        color: var(--primary);
+        border-bottom-color: var(--primary);
+      }
+
+      .tabs {
+        border-bottom: 1px solid var(--line);
+        margin-bottom: 24px;
+      }
+
+      .login-form {
+        display: none;
+      }
+
+      .login-form.active {
+        display: block;
+      }
+
+      /* Onboarding Slideshow */
+      .slideshow-screen {
+        display: none;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .slideshow-screen.active {
+        display: flex;
+      }
+
+      .slideshow-card {
+        background: white;
+        border-radius: 28px;
+        padding: 48px 40px;
+        max-width: 700px;
+        width: 100%;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+
+      .slide {
+        display: none;
+      }
+
+      .slide.active {
+        display: block;
+        animation: fadeIn 0.3s ease;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      .slide-icon {
+        font-size: 5rem;
+        margin-bottom: 24px;
+      }
+
+      .slideshow-card h2 {
+        margin: 0 0 16px;
+        font-size: 2.2rem;
+      }
+
+      .slideshow-card p {
+        margin: 0 0 32px;
+        color: var(--muted);
+        line-height: 1.8;
+        font-size: 1.05rem;
+      }
+
+      .slide-counter {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin-bottom: 24px;
+      }
+
+      .slideshow-progress {
+        width: 100%;
+        height: 4px;
+        background: #ddd;
+        border-radius: 2px;
+        margin-bottom: 24px;
+        overflow: hidden;
+      }
+
+      .slideshow-progress-bar {
+        height: 100%;
+        background: var(--primary);
+        border-radius: inherit;
+        transition: width 0.3s ease;
+      }
+
+      .slideshow-controls {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+      }
+
+      .slide-btn {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 12px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+
+      .slide-btn.secondary {
+        background: white;
+        color: var(--primary);
+        border: 2px solid var(--primary);
+      }
+
+      .slide-btn.secondary:hover {
+        background: var(--primary-soft);
+      }
+
+      .slide-btn.primary {
+        background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+        color: white;
+        box-shadow: 0 12px 28px rgba(91,124,255,0.25);
+      }
+
+      .slide-btn.primary:hover {
+        transform: translateY(-2px);
+      }
+
+      /* Welcome Screen */
+      .welcome-screen {
+        display: none;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .welcome-screen.active {
+        display: flex;
+      }
+
+      .welcome-card {
+        background: white;
+        border-radius: 28px;
+        padding: 48px 40px;
+        max-width: 600px;
+        width: 100%;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+
+      .welcome-logo {
+        width: 80px;
+        height: 80px;
+        border-radius: 20px;
+        background: linear-gradient(135deg, var(--primary), #7d93ff);
+        display: grid;
+        place-items: center;
+        color: white;
+        font-weight: 900;
+        font-size: 2.4rem;
+        box-shadow: 0 16px 40px rgba(91,124,255,0.3);
+        margin: 0 auto 24px;
+      }
+
+      .welcome-card h1 {
+        margin: 0 0 16px;
+        font-size: 2.4rem;
+      }
+
+      .welcome-card p {
+        margin: 0 0 32px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .welcome-info {
+        background: var(--panel-soft);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 20px;
+        margin-bottom: 24px;
+        text-align: left;
+      }
+
+      .welcome-info-item {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .welcome-info-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .welcome-info-icon {
+        font-size: 1.3rem;
+        min-width: 20px;
+      }
+
+      .welcome-info-text strong {
+        display: block;
+        font-weight: 800;
+        margin-bottom: 4px;
+      }
+
+      .welcome-info-text {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .welcome-btn {
+        width: 100%;
+        padding: 16px 20px;
+        background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-weight: 800;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.2s ease;
+        box-shadow: 0 12px 28px rgba(91,124,255,0.25);
+      }
+
+      .welcome-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 36px rgba(91,124,255,0.35);
+      }
+
       /* Main App */
       .app-screen {
         display: none;
@@ -278,17 +526,6 @@
         font-size: 0.75rem;
         color: var(--muted);
       }
-
-      .nav {
-        display: flex;
-        align-items: center;
-        gap: 26px;
-        color: var(--muted);
-        font-weight: 600;
-      }
-
-      .nav a { transition: 0.2s ease; }
-      .nav a:hover { color: var(--primary); }
 
       .actions {
         display: flex;
@@ -348,6 +585,40 @@
       @keyframes pulse {
         0%, 100% { opacity: 1; }
         50% { opacity: 0.8; }
+      }
+
+      .user-info {
+        background: var(--panel-soft);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 12px 16px;
+        margin-left: auto;
+      }
+
+      .user-name {
+        font-weight: 800;
+        font-size: 0.9rem;
+      }
+
+      .user-child {
+        font-size: 0.75rem;
+        color: var(--muted);
+      }
+
+      .logout-btn {
+        background: white;
+        border: 1px solid var(--line);
+        color: var(--text);
+        padding: 8px 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 0.8rem;
+        margin-left: 10px;
+      }
+
+      .logout-btn:hover {
+        background: var(--panel-soft);
       }
 
       /* Modal */
@@ -480,204 +751,21 @@
         border: 1px solid rgba(239, 95, 95, 0.2);
       }
 
-      /* Welcome Screen */
-      .welcome-screen {
-        display: none;
-        min-height: 100vh;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-      }
-
-      .welcome-screen.active {
-        display: flex;
-      }
-
-      .welcome-card {
-        background: white;
-        border-radius: 28px;
-        padding: 48px 40px;
-        max-width: 600px;
-        width: 100%;
-        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
-        text-align: center;
-      }
-
-      .welcome-logo {
-        width: 80px;
-        height: 80px;
-        border-radius: 20px;
-        background: linear-gradient(135deg, var(--primary), #7d93ff);
-        display: grid;
-        place-items: center;
-        color: white;
-        font-weight: 900;
-        font-size: 2.4rem;
-        box-shadow: 0 16px 40px rgba(91,124,255,0.3);
-        margin: 0 auto 24px;
-      }
-
-      .welcome-card h1 {
-        margin: 0 0 16px;
-        font-size: 2.4rem;
-      }
-
-      .welcome-card p {
-        margin: 0 0 32px;
-        color: var(--muted);
-        line-height: 1.7;
-      }
-
-      .welcome-info {
-        background: var(--panel-soft);
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        padding: 20px;
-        margin-bottom: 24px;
-        text-align: left;
-      }
-
-      .welcome-info-item {
-        display: flex;
-        gap: 12px;
-        margin-bottom: 12px;
-      }
-
-      .welcome-info-item:last-child {
-        margin-bottom: 0;
-      }
-
-      .welcome-info-icon {
-        font-size: 1.3rem;
-        min-width: 20px;
-      }
-
-      .welcome-info-text strong {
-        display: block;
-        font-weight: 800;
-        margin-bottom: 4px;
-      }
-
-      .welcome-info-text {
-        color: var(--muted);
-        font-size: 0.9rem;
-      }
-
-      .welcome-btn {
-        width: 100%;
-        padding: 16px 20px;
-        background: linear-gradient(135deg, var(--primary), var(--primary-strong));
-        color: white;
-        border: none;
-        border-radius: 12px;
-        font-weight: 800;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: 0.2s ease;
-        box-shadow: 0 12px 28px rgba(91,124,255,0.25);
-      }
-
-      .welcome-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 16px 36px rgba(91,124,255,0.35);
-      }
-
-      .user-info {
-        background: var(--panel-soft);
-        border: 1px solid var(--line);
-        border-radius: 12px;
-        padding: 12px 16px;
-        margin-left: auto;
-      }
-
-      .user-name {
-        font-weight: 800;
-        font-size: 0.9rem;
-      }
-
-      .user-child {
-        font-size: 0.75rem;
-        color: var(--muted);
-      }
-
-      .logout-btn {
-        background: white;
-        border: 1px solid var(--line);
-        color: var(--text);
-        padding: 8px 12px;
-        border-radius: 8px;
-        cursor: pointer;
-        font-weight: 700;
-        font-size: 0.8rem;
-        margin-left: 10px;
-      }
-
-      .logout-btn:hover {
-        background: var(--panel-soft);
-      }
-
-      /* Hero and other sections */
-      .hero {
-        padding: 72px 0 50px;
-      }
-      .hero-grid {
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 48px;
-        align-items: center;
-      }
-
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: var(--primary-soft);
-        border: 1px solid rgba(91,124,255,0.15);
-        color: var(--primary);
-        padding: 8px 12px;
-        border-radius: 999px;
-        font-size: 0.7rem;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        font-weight: 800;
-      }
-
-      h1 {
-        margin: 18px 0 20px;
-        font-size: clamp(2.8rem, 5vw, 5rem);
-        line-height: 0.96;
-        letter-spacing: -0.06em;
-        color: var(--text);
-      }
-
-      .subtext {
-        font-size: 1.15rem;
-        line-height: 1.7;
-        color: var(--muted);
-        max-width: 590px;
-      }
-
-      .cta-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 14px;
-        margin-top: 28px;
+      .error-message {
+        color: var(--danger);
+        font-size: 0.85rem;
+        margin-top: 8px;
       }
 
       @media (max-width: 980px) {
-        .hero-grid {
-          grid-template-columns: 1fr;
-        }
         .nav { display: none; }
       }
 
       @media (max-width: 640px) {
-        .auth-container {
+        .auth-container, .slideshow-card, .welcome-card {
           padding: 32px 20px;
         }
-        .topbar-inner, .dashboard-header {
+        .topbar-inner {
           flex-direction: column;
           align-items: flex-start;
         }
@@ -697,68 +785,147 @@
           <p>Safe giving for kids</p>
         </div>
 
-        <div class="step-indicator">
-          <div class="step-dot active" id="step1Dot"></div>
-          <div class="step-dot" id="step2Dot"></div>
+        <!-- Tabs -->
+        <div class="tabs">
+          <button class="tab-btn active" onclick="switchTab('signup')">Sign up</button>
+          <button class="tab-btn" onclick="switchTab('login')">Login</button>
         </div>
 
-        <!-- Step 1: Parent Email & Password -->
-        <div id="step1">
-          <div class="step-label">Step 1 of 2: Create your parent account</div>
-          
-          <form onsubmit="goToStep2(event)">
+        <!-- Sign Up Form -->
+        <div class="login-form active" id="signupForm">
+          <div class="step-indicator">
+            <div class="step-dot active" id="step1Dot"></div>
+            <div class="step-dot" id="step2Dot"></div>
+          </div>
+
+          <div id="step1">
+            <div class="step-label">Step 1 of 2: Create your parent account</div>
+            
+            <form onsubmit="goToStep2(event)">
+              <div class="form-group">
+                <label>Email address</label>
+                <input type="email" id="parentEmail" placeholder="you@example.com" required />
+              </div>
+
+              <div class="form-group">
+                <label>Create password</label>
+                <input type="password" id="parentPassword" placeholder="At least 8 characters" oninput="checkPasswordStrength()" required minlength="8" />
+                <div class="password-strength" id="strengthBars">
+                  <div class="strength-bar"></div>
+                  <div class="strength-bar"></div>
+                  <div class="strength-bar"></div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Confirm password</label>
+                <input type="password" id="parentPasswordConfirm" placeholder="Re-enter your password" required minlength="8" />
+              </div>
+
+              <button type="submit" class="auth-btn">Continue to next step</button>
+            </form>
+          </div>
+
+          <div id="step2" style="display: none;">
+            <div class="step-label">Step 2 of 2: Tell us about your child</div>
+            
+            <form onsubmit="completeSignup(event)">
+              <div class="form-group">
+                <label>Child's name</label>
+                <input type="text" id="childName" placeholder="e.g., Emma" required />
+              </div>
+
+              <div class="form-group">
+                <label>Child's age</label>
+                <select id="childAge" required>
+                  <option value="">Select age</option>
+                  <option value="6">6 years old</option>
+                  <option value="7">7 years old</option>
+                  <option value="8">8 years old</option>
+                  <option value="9">9 years old</option>
+                  <option value="10">10 years old</option>
+                  <option value="11">11 years old</option>
+                  <option value="12">12 years old</option>
+                  <option value="13">13 years old</option>
+                </select>
+              </div>
+
+              <button type="button" class="back-btn" onclick="goToStep1()">← Back</button>
+              <button type="submit" class="auth-btn">Complete signup</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Login Form -->
+        <div class="login-form" id="loginForm">
+          <form onsubmit="handleLogin(event)">
             <div class="form-group">
               <label>Email address</label>
-              <input type="email" id="parentEmail" placeholder="you@example.com" required />
+              <input type="email" id="loginEmail" placeholder="your@email.com" required />
             </div>
 
             <div class="form-group">
-              <label>Create password</label>
-              <input type="password" id="parentPassword" placeholder="At least 8 characters" oninput="checkPasswordStrength()" required minlength="8" />
-              <div class="password-strength" id="strengthBars">
-                <div class="strength-bar"></div>
-                <div class="strength-bar"></div>
-                <div class="strength-bar"></div>
-              </div>
+              <label>Password</label>
+              <input type="password" id="loginPassword" placeholder="Enter your password" required />
+              <div class="error-message" id="loginError"></div>
             </div>
 
-            <div class="form-group">
-              <label>Confirm password</label>
-              <input type="password" id="parentPasswordConfirm" placeholder="Re-enter your password" required minlength="8" />
-            </div>
-
-            <button type="submit" class="auth-btn">Continue to next step</button>
+            <button type="submit" class="auth-btn">Login</button>
           </form>
         </div>
+      </div>
+    </div>
 
-        <!-- Step 2: Child's Name -->
-        <div id="step2" style="display: none;">
-          <div class="step-label">Step 2 of 2: Tell us about your child</div>
-          
-          <form onsubmit="completeSignup(event)">
-            <div class="form-group">
-              <label>Child's name</label>
-              <input type="text" id="childName" placeholder="e.g., Emma" required />
-            </div>
+    <!-- Onboarding Slideshow -->
+    <div class="slideshow-screen" id="slideshowScreen">
+      <div class="slideshow-card">
+        <div class="slideshow-progress">
+          <div class="slideshow-progress-bar" id="progressBar" style="width: 20%;"></div>
+        </div>
 
-            <div class="form-group">
-              <label>Child's age</label>
-              <select id="childAge" required>
-                <option value="">Select age</option>
-                <option value="6">6 years old</option>
-                <option value="7">7 years old</option>
-                <option value="8">8 years old</option>
-                <option value="9">9 years old</option>
-                <option value="10">10 years old</option>
-                <option value="11">11 years old</option>
-                <option value="12">12 years old</option>
-                <option value="13">13 years old</option>
-              </select>
-            </div>
+        <!-- Slide 1 -->
+        <div class="slide active" id="slide1">
+          <div class="slide-icon">👧</div>
+          <h2>Kids can create fundraisers</h2>
+          <p>Your child can share a cause, set a goal, and tell their story. They submit their idea to you for approval.</p>
+          <div class="slide-counter">1 of 5</div>
+        </div>
 
-            <button type="button" class="back-btn" onclick="goToStep1()">← Back</button>
-            <button type="submit" class="auth-btn">Complete signup</button>
-          </form>
+        <!-- Slide 2 -->
+        <div class="slide" id="slide2">
+          <div class="slide-icon">✓</div>
+          <h2>You approve every campaign</h2>
+          <p>Review your child's fundraiser idea. Check the goal, story, and safety details. You can approve or send it back for changes.</p>
+          <div class="slide-counter">2 of 5</div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide" id="slide3">
+          <div class="slide-icon">🌍</div>
+          <h2>Public fundraiser page</h2>
+          <p>Once approved, the fundraiser goes live with a public page. Friends and family can easily see the details and donate.</p>
+          <div class="slide-counter">3 of 5</div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="slide" id="slide4">
+          <div class="slide-icon">👁️</div>
+          <h2>You stay in control</h2>
+          <p>Monitor all donations, updates, and activity. You can pause or close a campaign at any time. Full visibility, full safety.</p>
+          <div class="slide-counter">4 of 5</div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="slide" id="slide5">
+          <div class="slide-icon">🔒</div>
+          <h2>Privacy and security</h2>
+          <p>Your child's data is protected. No public profiles unless you approve. All payments are secure and monitored by you.</p>
+          <div class="slide-counter">5 of 5</div>
+        </div>
+
+        <div class="slideshow-controls">
+          <button class="slide-btn secondary" id="prevBtn" onclick="prevSlide()" style="display: none;">← Back</button>
+          <button class="slide-btn primary" id="nextBtn" onclick="nextSlide()">Next →</button>
         </div>
       </div>
     </div>
@@ -794,7 +961,7 @@
           </div>
         </div>
 
-        <button class="welcome-btn" onclick="goToDashboard()">Go to Dashboard</button>
+        <button class="welcome-btn" onclick="startSlideshow()">Learn how it works</button>
       </div>
     </div>
 
@@ -809,11 +976,6 @@
               <span>Safe giving for kids</span>
             </div>
           </div>
-
-          <nav class="nav">
-            <a href="#features">Features</a>
-            <a href="#dashboard">Dashboard</a>
-          </nav>
 
           <div class="actions">
             <button class="approval-badge alert" onclick="openApprovalModal()">
@@ -842,34 +1004,29 @@
         </div>
       </div>
 
-      <main>
-        <section class="hero">
-          <div class="container hero-grid">
-            <div>
-              <div class="eyebrow">Parent-first fundraising</div>
-              <h1>Help your child launch good causes with confidence.</h1>
-              <p class="subtext">
-                KidFund makes it easy for your child to create fundraising ideas while you approve,
-                monitor, and protect every step of the process.
-              </p>
-
-              <div class="cta-row">
-                <button class="btn btn-primary" onclick="openApprovalModal()">Review approvals</button>
-                <a href="#dashboard" class="btn btn-ghost">Explore dashboard</a>
-              </div>
-            </div>
-          </div>
-        </section>
+      <main style="padding: 40px 0;">
+        <div class="container">
+          <h1 style="margin-bottom: 20px;">Parent Dashboard</h1>
+          <p style="color: var(--muted); margin-bottom: 30px;">Welcome! Use the approval button above to review your child's fundraisers.</p>
+          
+          <button class="btn btn-primary" onclick="openApprovalModal()" style="padding: 16px 28px; font-size: 1.05rem;">
+            Review Fundraisers
+          </button>
+        </div>
       </main>
     </div>
 
     <script>
-      // User data
+      // User data storage
       let userData = {
         parentEmail: '',
         childName: '',
-        childAge: ''
+        childAge: '',
+        password: ''
       };
+
+      const users = [];
+      let currentSlide = 1;
 
       const pendingApprovals = [
         {
@@ -900,6 +1057,18 @@
           story: "The animal shelter near us needs supplies for the dogs and cats. We want to raise money to buy food, blankets, toys, and medicine."
         }
       ];
+
+      function switchTab(tab) {
+        document.querySelectorAll('.login-form').forEach(f => f.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        
+        if (tab === 'signup') {
+          document.getElementById('signupForm').classList.add('active');
+        } else {
+          document.getElementById('loginForm').classList.add('active');
+        }
+        event.target.classList.add('active');
+      }
 
       function checkPasswordStrength() {
         const password = document.getElementById('parentPassword').value;
@@ -933,6 +1102,7 @@
         }
 
         userData.parentEmail = email;
+        userData.password = password;
 
         document.getElementById('step1').style.display = 'none';
         document.getElementById('step2').style.display = 'block';
@@ -953,22 +1123,80 @@
         userData.childName = document.getElementById('childName').value;
         userData.childAge = document.getElementById('childAge').value;
 
+        // Save user
+        users.push({...userData});
+
         // Show welcome screen
         document.getElementById('authScreen').classList.remove('active');
         document.getElementById('welcomeScreen').classList.add('active');
-
         document.getElementById('welcomeChildName').textContent = `${userData.childName} is ready!`;
       }
 
-      function goToDashboard() {
+      function startSlideshow() {
         document.getElementById('welcomeScreen').classList.remove('active');
+        document.getElementById('slideshowScreen').classList.add('active');
+        currentSlide = 1;
+        showSlide(1);
+      }
+
+      function showSlide(n) {
+        document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+        document.getElementById('slide' + n).classList.add('active');
+
+        // Update progress bar
+        const progress = (n / 5) * 100;
+        document.getElementById('progressBar').style.width = progress + '%';
+
+        // Show/hide buttons
+        document.getElementById('prevBtn').style.display = n === 1 ? 'none' : 'inline-block';
+        document.getElementById('nextBtn').textContent = n === 5 ? 'Go to Dashboard' : 'Next →';
+      }
+
+      function nextSlide() {
+        if (currentSlide < 5) {
+          currentSlide++;
+          showSlide(currentSlide);
+        } else {
+          goToDashboard();
+        }
+      }
+
+      function prevSlide() {
+        if (currentSlide > 1) {
+          currentSlide--;
+          showSlide(currentSlide);
+        }
+      }
+
+      function goToDashboard() {
+        document.getElementById('slideshowScreen').classList.remove('active');
         document.getElementById('appScreen').classList.add('active');
 
-        // Display user info
         document.getElementById('displayParentEmail').textContent = userData.parentEmail;
         document.getElementById('displayChildName').textContent = `${userData.childName}, ${userData.childAge} yrs`;
+      }
 
-        openApprovalModal();
+      function handleLogin(e) {
+        e.preventDefault();
+
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+
+        const user = users.find(u => u.parentEmail === email && u.password === password);
+
+        if (!user) {
+          document.getElementById('loginError').textContent = 'Invalid email or password';
+          return;
+        }
+
+        userData = {...user};
+
+        // Skip onboarding for returning users
+        document.getElementById('authScreen').classList.remove('active');
+        document.getElementById('appScreen').classList.add('active');
+
+        document.getElementById('displayParentEmail').textContent = userData.parentEmail;
+        document.getElementById('displayChildName').textContent = `${userData.childName}, ${userData.childAge} yrs`;
       }
 
       function openApprovalModal() {
@@ -1036,21 +1264,37 @@
         userData = {
           parentEmail: '',
           childName: '',
-          childAge: ''
+          childAge: '',
+          password: ''
         };
+        currentSlide = 1;
         document.getElementById('appScreen').classList.remove('active');
         document.getElementById('authScreen').classList.add('active');
         document.getElementById('welcomeScreen').classList.remove('active');
+        document.getElementById('slideshowScreen').classList.remove('active');
 
-        // Reset form
+        // Reset signup form
         document.getElementById('step1').style.display = 'block';
         document.getElementById('step2').style.display = 'none';
         document.getElementById('step1Dot').classList.add('active');
         document.getElementById('step2Dot').classList.remove('active');
+        document.querySelectorAll('.login-form').forEach(f => f.classList.remove('active'));
+        document.getElementById('signupForm').classList.add('active');
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-btn')[0].classList.add('active');
+
+        // Clear form fields
+        document.getElementById('parentEmail').value = '';
+        document.getElementById('parentPassword').value = '';
+        document.getElementById('parentPasswordConfirm').value = '';
+        document.getElementById('childName').value = '';
+        document.getElementById('childAge').value = '';
+        document.getElementById('loginEmail').value = '';
+        document.getElementById('loginPassword').value = '';
+        document.getElementById('loginError').textContent = '';
       }
 
-      // Close modal when clicking outside
-      document.getElementById('approvalModal')?.addEventListener('click', function(e) {
+      document.getElementById('approvalModal').addEventListener('click', function(e) {
         if (e.target === this) {
           closeApprovalModal();
         }
